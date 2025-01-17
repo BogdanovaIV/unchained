@@ -4,6 +4,7 @@
 {% url 'account_login' as login_url %}
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
+{% url 'contact' as contact_url %}
 
 
 <!DOCTYPE html>
@@ -54,6 +55,11 @@
                                 href="{% url 'home' %}" aria-label="Go to the Home Page" {% if request.path == home_url %}aria-current="page"{% endif %}>
                                 Home
                             </a>
+                            <li class="nav-item">
+                                <a class="nav-link {% if request.path == contact_url %}fw-bolder{% endif %}"
+                                    href="{% url 'contact' %}" aria-label="Go to the Contact Page" {% if request.path == contact_url %}aria-current="page"{% endif %}>
+                                    Contact
+                                </a>
                         </li>
                         {% if user.is_authenticated %}
                         <li class="nav-item">
