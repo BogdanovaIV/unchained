@@ -14,6 +14,7 @@
             <div class="card mb-4 shadow-sm">
                 <div class="card-body">
                     <h5 class="card-title">{{ room.name }}</h5>
+                    <p class="card-text">{{ room }}</p>
                     <p class="card-text">You are already assigned to this room.</p>
                     <a href="{% url 'chat:room' room.name %}" class="btn btn-primary">Join Room</a>
                 </div>
@@ -33,7 +34,8 @@
         <div class="col-md-4">
             <div class="card mb-4 shadow-sm">
                 <div class="card-body">
-                    <h5 class="card-title">{{ room.name }}</h5>
+                    <h5 class="card-title"> {{ room.name }} </h5>
+                    <p class="card-text">{{ room }}</p>
                     <p class="card-text">This room is available. Take control to start chatting.</p>
                     <form method="POST" action="{% url 'chat:take_room' room.name %}">
                         {% csrf_token %}
