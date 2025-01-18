@@ -1,131 +1,237 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# UNCHAINED - A Django-Based Chat & Support System  
 
-Welcome Irina Bogdanova,
+## Introduction  
+UNCHAINED is a secure and private chat platform built with Django and Django Channels. It is designed to provide real-time communication between users and specialists, particularly for support services related to human trafficking prevention.  
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+**Live Site:** [Insert Deployment Link]  
 
-You can safely delete this README.md file or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **June 18, 2024**
+## Admin Access  
+Admin users can log in via:  
+**URL:** [Insert Admin URL]  
+**Username:** [Insert Username]  
+**Password:** [Insert Password]  
 
-## Gitpod Reminders
+## Table of Contents  
+- [Introduction](#introduction)  
+- [Admin Access](#admin-access)  
+- [UX - User Experience](#ux---user-experience)  
+- [Project Planning](#project-planning)  
+- [Database Schema](#database-schema)  
+- [Security](#security)  
+- [Features](#features)  
+- [User Views and Features](#user-views-and-features)  
+- [CRUD Functionality](#crud-functionality)  
+- [Future Features](#future-features)  
+- [Technologies & Languages Used](#technologies--languages-used)  
+- [Libraries, Frameworks & APIs](#libraries-frameworks--apis)  
+- [Testing](#testing)  
+- [Deployment](#deployment)  
+- [Bugs](#bugs)  
+- [Credits](#credits)  
+- [Acknowledgements](#acknowledgements)  
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+## UX - User Experience  
 
-`python3 -m http.server`
+### Target Audience  
+- Individuals seeking secure, private support.  
+- Specialists providing professional guidance.  
 
-A blue button should appear to click: _Make Public_,
+### User Goals  
+- Secure, anonymous chat with specialists.  
+- Easy navigation and account management.  
 
-Another blue button should appear to click: _Open Browser_.
+### Design Choices  
+- Minimalist UI for easy navigation.  
+- Mobile-first approach for accessibility.  
+- Clear CTAs to guide users.  
 
-To run a backend Python file, type `python3 app.py` if your Python file is named `app.py`, of course.
+## Project Planning  
 
-A blue button should appear to click: _Make Public_,
+### Agile Methodology  
+- Managed via GitHub Issues and Kanban boards.  
+- Iterative updates based on user feedback.  
 
-Another blue button should appear to click: _Open Browser_.
+### Wireframes  
+- **[Link to Wireframes]**  
+- Created using **Balsamiq/Figma**.  
 
-By Default, Gitpod gives you superuser security privileges. Therefore, you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+## Database Schema  
+- **Users** (Django Auth User model extended with profile data).  
+- **ChatRooms** (Manages user-specialist chat sessions).  
+- **Messages** (Stores chat history with timestamps).  
+- **Reports** (Allows users to report suspicious activity).  
 
-To log into the Heroku toolbelt CLI:
+**[Insert Database Schema Diagram]**  
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+## Security  
+- **Authentication:** Django Allauth for login and registration.  
+- **Data Protection:** Encrypted database fields for sensitive user data.  
+- **CSRF & XSS Protection:** Implemented via Django’s built-in security.  
+- **HTTPS Only:** Enforced in production for secure transmission.  
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you, so do not share it. If you accidentally make it public, you can create a new one with _Regenerate API Key_.
+## Features  
+- **User Authentication** (Login, Registration, Logout)  
+- **Real-Time Chat** with Django Channels & WebSockets  
+- **Private Chat Rooms** (1:1 support)  
+- **Specialist Assignment** for user chats  
+- **Custom 403, 404, 500 Error Pages**  
+- **Secure Messaging & User Privacy**  
+- **Admin Dashboard** for managing users & reports  
+- **Deployed on Heroku**  
 
-### Connecting your Mongo database
+## User Views and Features  
 
-- **Connect to Mongo CLI on a IDE**
-- navigate to your MongoDB Clusters Sandbox
-- click **"Connect"** button
-- select **"Connect with the MongoDB shell"**
-- select **"I have the mongo shell installed"**
-- choose **mongosh (2.0 or later)** for : **"Select your mongo shell version"**
-- choose option: **"Run your connection string in your command line"**
-- in the terminal, paste the copied code `mongo "mongodb+srv://<CLUSTER-NAME>.mongodb.net/<DBname>" --apiVersion 1 --username <USERNAME>`
-  - replace all `<angle-bracket>` keys with your own data
-- enter password _(will not echo **\*\*\*\*** on screen)_
+### Non-Members  
+- View landing page and information.  
+- Access limited resources.  
 
-------
+### Registered Users  
+- Create and manage chat sessions.  
+- View past messages.  
+- Report incidents to admin.  
 
-## Release History
+### Specialists  
+- Join multiple chat rooms.  
+- Respond to messages in real-time.  
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+### Admins  
+- Manage users, specialists, and reports.  
+- Monitor chat room activity.  
 
-**June 18, 2024,** Add Mongo back into template
+## CRUD Functionality  
 
-**June 14, 2024,** Temporarily remove Mongo until the key issue is resolved
+| Feature | Create | Read | Update | Delete |  
+|---------|--------|------|--------|--------|  
+| User Profiles | ✅ | ✅ | ✅ | ✅ |  
+| Chat Rooms | ✅ | ✅ | ✅ | ✅ |  
+| Messages | ✅ | ✅ | ❌ | ❌ |  
+| Reports | ✅ | ✅ | ✅ | ✅ |  
 
-**May 28 2024:** Fix Mongo and Links installs
+## Future Features  
+- **AI Chatbot Support** for automated responses.  
+- **File Sharing** within chat rooms.  
+- **Multilingual Support** for accessibility.  
 
-**April 26 2024:** Update node version to 16
+## Technologies & Languages Used  
+- **Languages:** Python, JavaScript, HTML, CSS  
+- **Frameworks:** Django, Django Channels, Bootstrap  
+- **Database:** SQLite (Development), PostgreSQL (Production)  
+- **Version Control:** Git & GitHub  
+- **Hosting:** Heroku  
+- **APIs:** Stripe (for payments), Google Maps (for location services)  
 
-**September 20 2023:** Update Python version to 3.9.17.
+## Libraries, Frameworks & APIs  
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+| Name | Purpose |  
+|------|---------|  
+| Django | Backend framework |  
+| Django Channels | WebSockets for real-time chat |  
+| Bootstrap | Frontend styling |  
+| Django Allauth | Authentication management |  
+| Stripe | Payment processing |  
+| Psycopg2 | PostgreSQL integration |  
+| Whitenoise | Static file handling |  
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+## Testing  
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+### Code Validation  
+- **Python:** Checked with PEP8.  
+- **JavaScript:** Linted for syntax errors.  
+- **HTML/CSS:** Validated using W3C validators.  
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+### Manual Testing  
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+| Feature | Expected Outcome | Result |  
+|---------|-----------------|--------|  
+| User Registration | User can sign up successfully | ✅ |  
+| Login | User can log in with correct credentials | ✅ |  
+| Chat Functionality | Messages are sent and received in real-time | ✅ |  
+| Admin Panel | Admins can manage users and reports | ✅ |  
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+## Deployment  
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+### Local Setup  
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+1. Clone the repository:  
+   ```sh
+   git clone https://github.com/BogdanovaIV/unchained.git  
+   cd unchained  
+   ```  
+2. Create a virtual environment:  
+   ```sh
+   python3 -m venv env  
+   source env/bin/activate  
+   ```  
+3. Install dependencies:  
+   ```sh
+   pip install -r requirements.txt  
+   ```  
+4. Apply migrations:  
+   ```sh
+   python manage.py migrate  
+   ```  
+5. Run the server:  
+   ```sh
+   python manage.py runserver  
+   ```  
+6. Access the site at `http://127.0.0.1:8000/`  
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+### Heroku Deployment  
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+1. Login to Heroku:  
+   ```sh
+   heroku login  
+   ```  
+2. Create an app:  
+   ```sh
+   heroku create unchained-app  
+   ```  
+3. Push to Heroku:  
+   ```sh
+   git push heroku main  
+   ```  
+4. Apply migrations:  
+   ```sh
+   heroku run python manage.py migrate  
+   ```  
+5. Open the app:  
+   ```sh
+   heroku open  
+   ```  
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+### Environment Variables  
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
+Ensure the following environment variables are set:  
 
 ```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
+SECRET_KEY=your-secret-key  
+DEBUG=False  
+ALLOWED_HOSTS=your-domain.com,localhost,127.0.0.1  
+DATABASE_URL=your-database-url  
+GOOGLE_MAPS_API_KEY=your-google-maps-key  
+```  
 
-**Anything more?**
+## Bugs  
 
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
+### Known Issues  
+- WebSockets may disconnect intermittently on slow networks.  
+- Some mobile browsers have inconsistent styling for chat messages.  
 
----
+### Resolved Issues  
+- Fixed login redirection bug.  
+- Adjusted specialist chat room access permissions.  
 
-Happy coding!
+## Credits  
+
+### Code Inspiration  
+- Django Documentation  
+- Stack Overflow  
+- Django Channels Tutorials  
+
+### Media  
+- Icons and assets from Font Awesome.  
+- Images sourced from Unsplash and Pexels.  
+
+## Acknowledgements  
+- Thanks to all contributors for their valuable feedback.  
+- Special appreciation to the Code Institute community for guidance.  
