@@ -16,6 +16,23 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls import handler403, handler404, handler500
+from django.shortcuts import render
+
+# Custom error views
+def custom_403(request, exception):
+    return render(request, "403.html", status=403)
+
+def custom_404(request, exception):
+    return render(request, "404.html", status=404)
+
+def custom_500(request):  # 500 does NOT take an exception argument
+    return render(request, "500.html", status=500)
+
+# Error handlers (must be set at the **end** of the file)
+handler403 = custom_403
+handler404 = custom_404
+handler500 = custom_500
 
 urlpatterns = [
     path("accounts/", include("allauth.urls")),
