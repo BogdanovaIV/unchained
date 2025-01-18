@@ -5,6 +5,8 @@
 {% url 'account_signup' as signup_url %}
 {% url 'account_logout' as logout_url %}
 {% url 'contact' as contact_url %}
+{% url 'chat:room' as chat_url %}
+{% url 'chat:specialist_rooms' as specialist_rooms_url %}
 
 
 <!DOCTYPE html>
@@ -63,7 +65,24 @@
                                     Contact
                                 </a>
                         </li>
+                        {% if user.is_authenticated and user_type == 0 %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if chat_url in request.path or chat_url in request.path %}fw-bolder{% endif %}"
+                                href="{% url 'chat:get_create_room' %}" aria-label="Go to your chat room" {% if chat_url in request.path or chat_url in request.path %}aria-current="page" {% endif %}>
+                                Chat
+                            </a>
+                        </li>
+                        {% endif %}
+                        {% if user.is_authenticated and user_type == 1 %}
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.path == specialist_rooms_url %}fw-bolder{% endif %}"
+                                href="{% url 'chat:specialist_rooms' %}" aria-label="Go to your list of rooms" {% if request.path == specialist_rooms_url %}aria-current="page" {% endif %}>
+                                Rooms
+                            </a>
+                        </li>
+                        {% endif %}
                         {% if user.is_authenticated %}
+
                         <li class="nav-item">
                             <a class="nav-link {% if request.path == logout_url %}fw-bolder{% endif %}"
                                 href="{% url 'account_logout' %}" aria-label="Logout from the Account" {% if request.path == logout_url %}aria-current="page"{% endif %}>
