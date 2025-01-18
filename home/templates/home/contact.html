@@ -1,26 +1,29 @@
 {% extends 'base.html' %}
-{% load static %} 
+{% load static %}
 
 {% block content %}
 <div class="container mt-5">
-    <h2 class="text-center mb-4">Contact Details</h2>
+    <div class="image-container">
+        <img src="{% static 'images/contact-image.jpg' %}" alt="Contact Image" class="contact-image">
+        <div class="image-overlay">
+            <h1>Please reach out to our support team for assistance</h1>
+            <p>If you or someone you know is affected by slavery or human trafficking, it’s important to know that you are
+                not alone. Help is available.</p>
+        </div>
+    </div>
 
-    <!-- Contact Information -->
-    <div class="row">
-        <div class="col-md-12 mb-4">
-            <h4>Contact Information</h4>
-            <ul class="list-unstyled">
-                <li><strong>Phone:</strong> +1 (555) 123-4567</li>
-                <li><strong>Email:</strong> <a href="mailto:info@unchained.com">info@unchained.com</a></li>
-                <li><strong>Address:</strong> 123 Unchained Ave, City, Country</li>
-            </ul>
-        </div>
-        
-        <!-- Map Section -->
-        <div class="col-md-12">
-            <h4>Our Location</h4>
-            <div id="map" style="height: 400px; width: 100%;"></div>
-        </div>
+    <!-- Centered Contact Information -->
+    <div class="contact-details text-center mt-5">
+        <h2 class="mb-4">Contact Details</h2>
+        <p><strong>Call our Helpline:</strong> +1 (555) 123-4567</p>
+        <p><strong>Email us:</strong> <a href="mailto:help@unchained.com">help@unchained.com</a></p>
+        <p><strong>Visit our office:</strong> 123 Unchained Ave, City, Country</p>
+    </div>
+
+    <!-- Map Section -->
+    <div class="mt-5">
+        <h4 class="text-center">Our Location</h4>
+        <div id="map" style="height: 300px; width: 100%;"></div>
     </div>
 </div>
 
