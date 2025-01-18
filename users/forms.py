@@ -1,6 +1,6 @@
 from django import forms
 from allauth.account.forms import SignupForm
-from django.contrib.auth.models import Group
+from users.models import UserProfile
 
 
 class CustomSignupForm(SignupForm):
@@ -28,5 +28,6 @@ class CustomSignupForm(SignupForm):
         user.username = self.cleaned_data['email']
 
         user.save()
+        user_profile = UserProfile.objects.create(user=user)
 
         return user

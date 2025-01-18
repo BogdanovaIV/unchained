@@ -39,6 +39,7 @@ ALLOWED_HOSTS =[
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -53,6 +54,13 @@ INSTALLED_APPS = [
     'users',
     'chat',
 ]
+#Django Channels
+ASGI_APPLICATION = 'unchained.asgi.application' 
+CHANNEL_LAYERS = {
+        "default": {
+            "BACKEND": "channels.layers.InMemoryChannelLayer",
+        },
+}
 
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
@@ -84,6 +92,7 @@ TEMPLATES = [
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
                 'unchained.context_processors.current_year',
+                'users.context_processors.user_profile_parameters',
             ],
         },
     },
