@@ -4,7 +4,7 @@
 {% block content %}
 <div class="container mt-5">
 
-    <h2 class="text-center">Welcome to the chat room: <strong>{{ chat_room }}</strong></h2>
+    <h2 class="text-center">Welcome to the chat room: <strong id="chat-representation">{{ chat_room }}</strong></h2>
     
     <!-- Chat log container with Bootstrap styling -->
     <div id="chat-log" class="border rounded p-3"
@@ -14,7 +14,7 @@
 
     <!-- Message input section -->
     <div class="input-group mb-3">
-        <input id="chat-message-input" type="text" class="form-control" placeholder="Type a message..." size="100">
+        <input id="chat-message-input" type="text" class="form-control me-1" placeholder="Type a message...">
         <button id="chat-message-submit" class="btn btn-primary" type="button">Send</button>
     </div>
 
@@ -34,6 +34,9 @@
     chatSocket.onmessage = function (e) {
         const data = JSON.parse(e.data);
         const messageContainer = document.getElementById('chat-log');
+        const chatRepresentation = document.getElementById('chat-representation');
+
+        chatRepresentation.innerHTML = data.chat_representation;
 
         // Format the message and display it with different colors based on the sender
         const class_color = data.is_sender ? 'text-success' : 'text-primary';
