@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>Your Chat Rooms</h2>
+    
+    <!-- Display assigned rooms -->
+    {% if assigned_rooms %}
+    <h3>Assigned Rooms</h3>
+    <div class="row">
+        {% for room in assigned_rooms %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ room.name }}</h5>
+                    <p class="card-text">You are already assigned to this room.</p>
+                    <a href="{% url 'chat:room' room.name %}" class="btn btn-primary">Join Room</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info">No rooms assigned to you.</div>
+    {% endif %}
+
+    <!-- Display unassigned rooms -->
+    {% if unassigned_rooms %}
+    <h3>Available Rooms</h3>
+    <div class="row">
+        {% for room in unassigned_rooms %}
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">{{ room.name }}</h5>
+                    <p class="card-text">This room is available. Take control to start chatting.</p>
+                    <form method="POST" action="{% url 'chat:take_room' room.name %}">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-success">Take Room</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% else %}
+    <div class="alert alert-info">No available rooms to take control of.</div>
+    {% endif %}
+</div>
+{% endblock %}
