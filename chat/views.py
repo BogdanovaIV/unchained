@@ -11,21 +11,29 @@ def get_create_room(request):
     """
     View to handle the chat room creation and redirection to the room.
     """
-    # Check if the user already has a ChatRoom
-    existing_room = ChatRoom.objects.filter(user=request.user).first()
-
-    if existing_room:
-        # If the user already has a room, redirect them to it
-        return redirect('chat:room', room_name=existing_room.name)
+    user_profile = request.user.userprofile  # Accessing the UserProfile linked to the user
     
-    # Automatically generate a room name (e.g., using the username and timestamp)
-    room_name = str(uuid.uuid4())
+    if user_profile.user_type == 0:  # 1 corresponds to 'Specialist'
 
-    # Create a new room with the generated name
-    chat_room = ChatRoom.objects.create(name=room_name, user=request.user)
+        # Check if the user already has a ChatRoom
+        existing_room = ChatRoom.objects.filter(user=request.user).first()
 
-    # Redirect to the newly created chat room
-    return redirect('chat:room', room_name=chat_room.name)
+        if existing_room:
+            # If the user already has a room, redirect them to it
+            return redirect('chat:room', room_name=existing_room.name)
+        
+        # Automatically generate a room name (e.g., using the username and timestamp)
+        room_name = str(uuid.uuid4())
+
+        # Create a new room with the generated name
+        chat_room = ChatRoom.objects.create(name=room_name, user=request.user)
+
+        # Redirect to the newly created chat room
+        return redirect('chat:room', room_name=chat_room.name)
+    else:
+        return redirect('chat:specialist_rooms')
+
+    return redirect('home')
 
 
 @login_required
