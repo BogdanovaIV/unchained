@@ -26,5 +26,6 @@
 
 <!-- Include the Map Initialization Script -->
 <script src="{% static 'js/map.js' %}"></script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD3CvLeQh9DX5k42eMEFhq5hJ1wOVVDPQA&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_maps_api_key }}&callback=initMap" async defer></script>
+
 {% endblock content %}
