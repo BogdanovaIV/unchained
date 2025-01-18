@@ -1,12 +1,99 @@
 {% extends 'base.html' %}
 {% load static %}
 
+<!-- Load CSS -->
+<link rel="stylesheet" href="{% static 'css/style-home.css' %}">
 
-<!-- test merge - martin -->
-
+<!-- Load JavaScript -->
+<script src="{% static 'js/script-home.js' %}" defer></script>
 
 {% block content %}
+<!-- Hero Section -->
+<section class="bg-dark text-white py-5" style="margin-top: 0;">
+    <div class="container text-center">
+        <h1>Modern Slavery and Human Trafficking</h1>
+        <p>Raising awareness and providing solutions to combat this global crisis.</p>
+    </div>
+</section>
 
-Need to Fill
+<!-- Information Boxes -->
+<section class="py-5">
+    <div class="container text-center">
+        <div class="row g-4">
+            <!-- Box 1 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0" style="cursor: pointer;" tabindex="0">
+                    <img src="{% static 'images/information.webp' %}" class="card-img-top" alt="Information">
+                    <div class="card-body">
+                        <h5 class="card-title">INFORMATION</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 2 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0" style="cursor: pointer;" tabindex="0">
+                    <img src="{% static 'images/data.webp' %}" class="card-img-top" alt="Data image by Travis Saylor">
+                    <div class="card-body">
+                        <h5 class="card-title">DATA</h5>
+                    </div>
+                </div>
+            </div>
+            <!-- Box 3 -->
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm border-0" style="cursor: pointer;" tabindex="0">
+                    <img src="{% static 'images/help.webp' %}" class="card-img-top" alt="Help image by Rony Djohan">
+                    <div class="card-body">
+                        <h5 class="card-title">HELP</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
+<!-- Quote Section -->
+<section class="bg-danger text-white py-4">
+    <div class="container text-center">
+        <blockquote class="blockquote">
+            <p id="quote-text" class="mb-0">Defeating human trafficking is a great moral calling of our time</p>
+        </blockquote>
+    </div>
+</section>
+
+<section class="py-5 bg-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Section 1</h2>
+        <p>Details about the first section go here.</p>
+    </div>
+</section>
+
+<section class="py-5 bg-dark text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Section 2</h2>
+        <p>Details about the second section go here.</p>
+    </div>
+</section>
+
+<section class="py-5 bg-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Section 3</h2>
+        <p>Details about the third section go here.</p>
+    </div>
+</section>
+
+<section class="py-5 bg-dark text-white">
+    <div class="container text-center">
+        <h2 class="mb-4">Section 4</h2>
+        <p>Details about the fourth section go here.</p>
+    </div>
+</section>
+
+<!-- Chat Button -->
+<a href="/chat-room/" class="chat-button" aria-label="Go to chat room">
+    CHAT
+</a>
+
+<!-- Footer -->
+<link rel="stylesheet" href="{% static 'css/style-home.css' %}">
+<script src="{% static 'js/script-home.js' %}" defer></script>
 {% endblock content %}
