@@ -32,7 +32,6 @@ class ChatConsumer(WebsocketConsumer):
                     "timestamp": message.timestamp.strftime(
                         "%Y-%m-%d %H:%M:%S"
                     ),
-                    "is_sender": message.sender == self.scope["user"],
                     "chat_representation": str(self.room),
                 })
             )
@@ -76,7 +75,6 @@ class ChatConsumer(WebsocketConsumer):
                 "message": message_content,
                 "sender": user.username,
                 "timestamp": message.timestamp.strftime("%Y-%m-%d %H:%M:%S"),
-                "is_sender": message.sender == self.scope["user"],
                 "chat_representation": str(self.room),
             },
         )
@@ -93,7 +91,6 @@ class ChatConsumer(WebsocketConsumer):
                     "message": event["message"],
                     "sender": event["sender"],
                     "timestamp": event["timestamp"],
-                    "is_sender": event["is_sender"],
                     "chat_representation": event["chat_representation"],
                 }
             )
