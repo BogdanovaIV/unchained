@@ -49,7 +49,9 @@ def chat_room(request, room_name):
 
     # Check if the current user is authorized to access this room
     if chat_room.user == request.user or chat_room.specialist == request.user:
-        return render(request, "chat/chat_room.html", {'chat_room': chat_room})
+        return render(
+            request, "chat/chat_room.html",
+            {'chat_room': chat_room, 'current_user': request.user.username})
     else:
         # If the user is not authorized, raise a permission error
         raise PermissionDenied(

@@ -18,7 +18,6 @@ class ChatConsumer(WebsocketConsumer):
         self.room_group_name = f"chat_{self.room_name}"
         # Join room group
         self.room = ChatRoom.objects.get(name=self.room_name)
-
         self.accept()
         # Fetch previous messages from the database
         messages = Message.objects.filter(room=self.room).order_by('timestamp')
@@ -32,7 +31,6 @@ class ChatConsumer(WebsocketConsumer):
                     "timestamp": message.timestamp.strftime(
                         "%Y-%m-%d %H:%M:%S"
                     ),
-                    "is_sender": message.sender == self.scope["user"],
                     "chat_representation": str(self.room),
                 })
             )
@@ -76,7 +74,6 @@ class ChatConsumer(WebsocketConsumer):
                 "message": message_content,
                 "sender": user.username,
                 "timestamp": message.timestamp.strftime("%Y-%m-%d %H:%M:%S"),
-                "is_sender": message.sender == self.scope["user"],
                 "chat_representation": str(self.room),
             },
         )
@@ -87,13 +84,14 @@ class ChatConsumer(WebsocketConsumer):
         Sends broadcast messages received from the chat room group to the
         WebSocket client.
         """
+        current_user = self.scope["user"]
         self.send(
             text_data=json.dumps(
                 {
                     "message": event["message"],
                     "sender": event["sender"],
                     "timestamp": event["timestamp"],
-                    "is_sender": event["is_sender"],
+                    "is_sender": event["sender"] == current_user.username,
                     "chat_representation": event["chat_representation"],
                 }
             )
