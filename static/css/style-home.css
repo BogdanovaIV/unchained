@@ -43,6 +43,13 @@ section {
     padding: 60px 20px;
 }
 
+#quote-text {
+    font-size: 1.5rem; /* Adjust the size as needed */
+    font-weight: bold; /* Optional: Make it bold */
+    text-align: center; /* Optional: Center the text */
+    margin: 20px 0; /* Optional: Add some spacing */
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .chat-button {
