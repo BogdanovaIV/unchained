@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-5">
+<div class="container">
 
     <h2 class="text-center">Welcome to the chat room: <strong id="chat-representation">{{ chat_room }}</strong></h2>
     
@@ -14,10 +14,9 @@
 
     <!-- Message input section -->
     <div class="input-group mb-3">
-        <input id="chat-message-input" type="text" class="form-control me-1" placeholder="Type a message...">
-        <button id="chat-message-submit" class="btn btn-primary" type="button">Send</button>
+        <input id="chat-message-input" type="text" class="form-control me-1 rounded-pill" placeholder="Type a message..." aria-label="Chat message">
+        <button id="chat-message-submit" class="btn btn-primary rounded-pill" type="button">Send</button>
     </div>
-
     <!-- Storing the room name for the WebSocket connection -->
     {{ chat_room.name|json_script:"room-name" }}
 
