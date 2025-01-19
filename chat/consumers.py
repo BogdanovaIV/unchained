@@ -18,7 +18,6 @@ class ChatConsumer(WebsocketConsumer):
         self.room_group_name = f"chat_{self.room_name}"
         # Join room group
         self.room = ChatRoom.objects.get(name=self.room_name)
-
         self.accept()
         # Fetch previous messages from the database
         messages = Message.objects.filter(room=self.room).order_by('timestamp')
@@ -85,6 +84,7 @@ class ChatConsumer(WebsocketConsumer):
         Sends broadcast messages received from the chat room group to the
         WebSocket client.
         """
+        current_user = self.scope["user"]
         self.send(
             text_data=json.dumps(
                 {

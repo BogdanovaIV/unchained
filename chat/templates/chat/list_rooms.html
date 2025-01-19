@@ -2,44 +2,52 @@
 {% load static %}
 
 {% block content %}
-<div class="container mt-4">
-    <h2>Your Chat Rooms</h2>
-    
+<!-- Header with background color -->
+<div class="image-container">
+    <img src="{% static 'images/list-rooms.png' %}" alt="Contact Image" class="contact-image">
+    <div class="image-overlay">
+        <h1 class="display-5 fw-bold">Your Chat Rooms</h1>
+        <p class="fs-5 text-light">Manage and join your assigned or available chat rooms below.</p>
+    </div>
+</div>
+
+<div class="container">
+
     <!-- Display assigned rooms -->
     {% if assigned_rooms %}
-    <h3>Assigned Rooms</h3>
-    <div class="row">
+    <h2 class="mb-3">Assigned Rooms</h2>
+    <div class="row g-4">
         {% for room in assigned_rooms %}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title">{{ room.name }}</h5>
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-primary shadow-sm h-100 bg-light">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">{{ room.name }}</h5>
                     <p class="card-text">{{ room }}</p>
-                    <p class="card-text">You are already assigned to this room.</p>
-                    <a href="{% url 'chat:room' room.name %}" class="btn btn-primary">Join Room</a>
+                    <p class="text-muted">You are already assigned to this room.</p>
+                    <a href="{% url 'chat:room' room.name %}" class="btn btn-primary mt-auto">Join Room</a>
                 </div>
             </div>
         </div>
         {% endfor %}
     </div>
     {% else %}
-    <div class="alert alert-info">No rooms assigned to you.</div>
+    <div class="alert alert-info mt-4">You are not assigned to any rooms.</div>
     {% endif %}
 
     <!-- Display unassigned rooms -->
     {% if unassigned_rooms %}
-    <h3>Available Rooms</h3>
-    <div class="row">
+    <h2 class="mt-5 mb-3">Available Rooms</h2>
+    <div class="row g-4">
         {% for room in unassigned_rooms %}
-        <div class="col-md-4">
-            <div class="card mb-4 shadow-sm">
-                <div class="card-body">
-                    <h5 class="card-title"> {{ room.name }} </h5>
+        <div class="col-md-6 col-lg-4">
+            <div class="card border-success shadow-sm h-100 bg-light">
+                <div class="card-body d-flex flex-column">
+                    <h5 class="card-title fw-bold">{{ room.name }}</h5>
                     <p class="card-text">{{ room }}</p>
-                    <p class="card-text">This room is available. Take control to start chatting.</p>
+                    <p class="text-muted">This room is available. Take control to start chatting.</p>
                     <form method="POST" action="{% url 'chat:take_room' room.name %}">
                         {% csrf_token %}
-                        <button type="submit" class="btn btn-success">Take Room</button>
+                        <button type="submit" class="btn btn-success mt-auto">Take Room</button>
                     </form>
                 </div>
             </div>
@@ -47,7 +55,7 @@
         {% endfor %}
     </div>
     {% else %}
-    <div class="alert alert-info">No available rooms to take control of.</div>
+    <div class="alert alert-info mt-4">No available rooms to take control of.</div>
     {% endif %}
 </div>
 {% endblock %}
