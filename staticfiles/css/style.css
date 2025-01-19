@@ -13,7 +13,8 @@
     color: #007BFF; 
 }
 
-/* Contact image style */
+/* Image style */
+
 .image-container {
     position: relative;
     width: 100%;
@@ -53,10 +54,10 @@
 }
 
 .contact-details {
-    background-color: #f8f9fa; 
+    background-color: #f8f9fa; /* Light gray background for contrast */
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
 }
 
 .contact-details h2 {
