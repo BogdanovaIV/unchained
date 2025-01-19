@@ -1,0 +1,100 @@
+
+
+
+.navbar {
+    background-color: #F8F9FA; 
+}
+
+.navbar .nav-link {
+    color: #343A40; 
+}
+
+.navbar .nav-link:hover {
+    color: #007BFF; 
+}
+
+/* Contact image style */
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+}
+
+.contact-image {
+    width: 100%;
+    height: auto;
+}
+
+.image-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5); 
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+}
+
+.image-overlay h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.image-overlay p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+.contact-details {
+    background-color: #f8f9fa; 
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1); 
+}
+
+.contact-details h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.contact-details p {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Signup image style */
+.bg-image-sign-up {
+    background-image: url("{% static 'images/signup-image.jpg' %}");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: 50px 0;
+    position: relative; 
+}
+
+.bg-image-sign-up::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    z-index: 1; 
+}
+
+.bg-image-sign-up .container {
+    position: relative;
+    z-index: 2; 
+}
+
+footer a:hover {
+    color: #a2abb8;
+}
