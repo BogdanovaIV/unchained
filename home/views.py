@@ -1,9 +1,9 @@
 from django.shortcuts import render
 import os
+
+# Load environment variables if env.py exists
 if os.path.isfile('env.py'):
     import env
-
-
 
 def home(request):
     """ Renders the Home page. """
@@ -11,7 +11,6 @@ def home(request):
         request,
         "home/home.html",
     )
-
 
 def contact(request):
     """ Renders the Contact page. """
