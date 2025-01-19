@@ -3,13 +3,12 @@
 ## Introduction  
 UNCHAINED is a secure and private chat platform built with Django and Django Channels. It is designed to provide real-time communication between users and specialists, particularly for support services related to human trafficking prevention.  
 
-**Live Site:** [Insert Deployment Link]  
+**Live Site:** [UNCHAINED](https://unchained-2025-052483a9c06d.herokuapp.com/)
 
 ## Admin Access  
 Admin users can log in via:  
-**URL:** [Insert Admin URL]  
-**Username:** [Insert Username]  
-**Password:** [Insert Password]  
+**URL:** [Admin Panel](https://unchained-2025-052483a9c06d.herokuapp.com/admin)
+
 
 ## Table of Contents  
 - [Introduction](#introduction)  
@@ -44,6 +43,18 @@ Admin users can log in via:
 - Minimalist UI for easy navigation.  
 - Mobile-first approach for accessibility.  
 - Clear CTAs to guide users.  
+
+## Color Scheme  
+
+UNCHAINED utilizes a purposeful color scheme to enhance user experience, readability, and accessibility while aligning with the serious nature of its mission. 
+The chosen colors convey professionalism, urgency, and clarity:  
+
+- **Dark Grey (#303030):** Used for the header and footer backgrounds, providing a strong, modern, and neutral foundation.  
+- **Blue (#25A2B8):** Highlight color for interactive elements (buttons, links), representing trust and communication.  
+- **Red (#FE5249):** Emphasizes warnings, alerts, and urgent messages, symbolizing urgency and danger.  
+- **Yellow (#EADE18):** Used for highlighting key information, evoking attention and awareness.  
+
+These colors are consistently applied across the UI to create a cohesive and user-friendly experience.
 
 ## Project Planning  
 
