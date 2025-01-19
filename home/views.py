@@ -5,12 +5,14 @@ import os
 if os.path.isfile('env.py'):
     import env
 
+
 def home(request):
     """ Renders the Home page. """
     return render(
         request,
         "home/home.html",
     )
+
 
 def contact(request):
     """ Renders the Contact page. """

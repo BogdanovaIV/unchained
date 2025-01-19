@@ -9,7 +9,7 @@ class CustomSignupForm(SignupForm):
     for first name and last name. This form overrides the default `SignupForm`
     to automatically assign the user's email as their username.
     """
-    
+
     def save(self, request):
         """
         Save the user object, assigning email as the username.

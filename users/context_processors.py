@@ -16,4 +16,4 @@ def user_profile_parameters(request):
             first_profile = user_profile.first()
             user_type = first_profile.user_type
 
-    return { 'user_type': user_type }
+    return {'user_type': user_type}
