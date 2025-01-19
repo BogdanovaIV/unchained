@@ -19,11 +19,12 @@
     </div>
     <!-- Storing the room name for the WebSocket connection -->
     {{ chat_room.name|json_script:"room-name" }}
-
+    {{ current_user|json_script:"current-user" }}
 </div>
 
 <script>
     const roomName = JSON.parse(document.getElementById('room-name').textContent);
+    const currentUser = JSON.parse(document.getElementById('current-user').textContent);
     const protocol = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
     const chatSocket = new WebSocket(
         protocol + window.location.host + '/ws/chat/' + roomName + '/'
@@ -38,7 +39,7 @@
         chatRepresentation.innerHTML = data.chat_representation;
 
         // Format the message and display it with different colors based on the sender
-        const class_color = data.is_sender ? 'text-success' : 'text-primary';
+        const class_color = data.sender == currentUser ? 'text-success' : 'text-primary';
 
         const messageHTML = `
             <div class="${class_color}">
@@ -47,7 +48,7 @@
             </div><hr>
         `;
         messageContainer.innerHTML += messageHTML;
-        messageContainer.scrollTop = messageContainer.scrollHeight;  // Auto-scroll to the bottom
+        messageContainer.scrollTop = messageContainer.scrollHeight;
     };
 
     chatSocket.onclose = function (e) {
