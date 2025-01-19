@@ -89,9 +89,11 @@
 </section>
 
 <!-- Chat Button -->
-<a href="/chat-room/" class="chat-button" aria-label="Go to chat room">
+{% if user.is_authenticated and user_type == 0 or user_type == -1 %}
+<a href="{% url 'chat:get_create_room' %}" class="chat-button" aria-label="Go to chat room">
     CHAT
 </a>
+{% endif %}
 
 <!-- Footer -->
 <link rel="stylesheet" href="{% static 'css/style-home.css' %}">
