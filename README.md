@@ -52,16 +52,38 @@ Admin users can log in via:
 - Iterative updates based on user feedback.  
 
 ### Wireframes  
-- **[Link to Wireframes]**  
-- Created using **Balsamiq/Figma**.  
+
+#### Home Page  
+<img src="static/images/homepage-wireframe.jpg" alt="Wireframe for desktop Home page." width="300">
+
+#### Contact Page  
+<img src="static/images/contact-wireframe.jpg" alt="Wireframe for desktop Contact page." width="300">
+
+#### Signup Page  
+<img src="static/images/signup-wireframe.jpg" alt="Wireframe for Signup page." width="300">
+
+#### Mobile Home Page  
+<img src="static/images/mobile-home-wireframe.jpg" alt="Wireframe for mobile Home page." width="200">
+
+#### Mobile Contact Page  
+<img src="static/images/contact-mobile-wireframe.jpg" alt="Wireframe for mobile Contact page." width="200">
+
+#### Mobile Signup Page  
+<img src="static/images/signup-mobile-wireframe.jpg" alt="Wireframe for mobile Signup page." width="200">
+
+Created using **Figma**.
+
 
 ## Database Schema  
+
+<img src="static/images/database-schema.png" alt="An overview of the database schema for Unchained" width="600">
+
+
 - **Users** (Django Auth User model extended with profile data).  
 - **ChatRooms** (Manages user-specialist chat sessions).  
 - **Messages** (Stores chat history with timestamps).  
 - **Reports** (Allows users to report suspicious activity).  
 
-**[Insert Database Schema Diagram]**  
 
 ## Security  
 - **Authentication:** Django Allauth for login and registration.  
