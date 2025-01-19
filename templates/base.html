@@ -68,14 +68,7 @@
                                 Contact
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.path == chat_url %}fw-bolder{% endif %}"
-                                href="{% url 'chat:get_create_room' %}" aria-label="Go to the Chat Page"
-                                {% if request.path == chat_url %}aria-current="page"{% endif %}>
-                                Chat
-                            </a>
-                        </li>
-                        {% if user.is_authenticated and user_type == 0 %}
+                        {% if user.is_authenticated and user_type == 0 or user_type == -1 %}
                         <li class="nav-item">
                             <a class="nav-link {% if chat_url in request.path or chat_url in request.path %}fw-bolder{% endif %}"
                                 href="{% url 'chat:get_create_room' %}" aria-label="Go to your chat room" {% if chat_url in request.path or chat_url in request.path %}aria-current="page" {% endif %}>

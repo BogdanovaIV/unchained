@@ -30,8 +30,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'DEV' in os.environ
 
-ALLOWED_HOSTS =[
-
+ALLOWED_HOSTS = [
     os.environ.get('ALLOWED_HOST'),
     'localhost',
 ]
@@ -54,8 +53,9 @@ INSTALLED_APPS = [
     'users',
     'chat',
 ]
-#Django Channels
-ASGI_APPLICATION = 'unchained.asgi.application' 
+
+# Django Channels
+ASGI_APPLICATION = 'unchained.asgi.application'
 CHANNEL_LAYERS = {
         "default": {
             "BACKEND": "channels.layers.InMemoryChannelLayer",
@@ -124,7 +124,7 @@ CSRF_TRUSTED_ORIGINS = [
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        'NAME':'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
     {
         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',

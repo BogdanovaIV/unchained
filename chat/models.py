@@ -4,7 +4,8 @@ from django.contrib.auth.models import User
 
 class ChatRoom(models.Model):
     """
-    Represents a chat room. A user has one room, while specialists can connect to multiple rooms.
+    Represents a chat room. A user has one room, while specialists can
+    connect to multiple rooms.
     """
     name = models.CharField(max_length=255, unique=True)
     user = models.OneToOneField(
@@ -35,19 +36,26 @@ class ChatRoom(models.Model):
                 specialist_name = self.specialist.get_full_name()
             else:
                 specialist_name = self.specialist.get_username()
-                
 
         return f"{client_name} & {specialist_name}"
+
 
 class Message(models.Model):
     """
     Represents a message sent in a chat room.
     """
-    room = models.ForeignKey(ChatRoom, on_delete=models.CASCADE, related_name="messages")
-    sender = models.ForeignKey(User, on_delete=models.CASCADE, related_name="messages")
+    room = models.ForeignKey(
+        ChatRoom,
+        on_delete=models.CASCADE,
+        related_name="messages"
+    )
+    sender = models.ForeignKey(
+        User,
+        on_delete=models.CASCADE,
+        related_name="messages"
+    )
     content = models.TextField()
     timestamp = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"Message from {self.sender.username} in {self.room.name}"
-
