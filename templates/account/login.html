@@ -1,38 +1,39 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% load i18n %}
 {% load account socialaccount %}
-
 
 {% block head_title %}{% trans "Sign In" %}{% endblock %}
 
 {% block content %}
 
-<section class="masthead py-4 text-center">
+<section class="masthead py-5 d-flex justify-content-center align-items-center bg-body-tertiary">
   <div class="container">
-    <div class="row">
-      <div class="col-md-12 mt-3">
-        <h1>{% trans "Sign In" %}</h1>
-        <p class="fs-5 fw-normal">{% blocktrans %}Welcome back to Unchained. If you have not created an account
-          yet, then <a class="link" href="{{ signup_url }}" aria-label="Go to the Sign-Up Page">sign up</a>
-          first.{% endblocktrans %}
-        </p>
+    <div class="row justify-content-center">
+      <div class="col-lg-6 col-md-8 col-sm-10 text-center">
+        <h1 class="display-5 fw-bold text-dark">{% trans "Sign In" %}</h1>
+        <p class="fs-5 fw-normal mt-3 text-muted">{% blocktrans %}Welcome back to Unchained! If you don't have an
+          account yet, you can <a class="text-primary fw-bold" href="{{ signup_url }}"
+            aria-label="Go to the Sign-Up Page">sign up</a> here.{% endblocktrans %}</p>
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-md-12 mt-3 font-monospace fw-medium">
-        <form class="login" method="POST" action="{% url 'account_login' %}">
-          {% csrf_token %}
-          {{ form.as_p }}
-          {% if redirect_field_value %}
-          <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-          {% endif %}
-          <button class="btn btn-secondary" type="submit" aria-label="Submit Sign-In Form">
-            {% trans "Sign In" %}
-          </button>
-        </form>
+    <div class="row justify-content-center mt-4">
+      <div class="col-lg-6 col-md-8 col-sm-10">
+        <div class="card shadow-sm border-0 rounded-4">
+          <div class="card-body p-4">
+            <form class="login" method="POST" action="{% url 'account_login' %}">
+              {% csrf_token %}
+              {{ form.as_p }}
+              {% if redirect_field_value %}
+              <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+              {% endif %}
+              <button class="btn btn-secondary w-100 py-2 fw-bold" type="submit" aria-label="Submit Sign-In Form">
+                {% trans "Sign In" %}
+              </button>
+            </form>
+          </div>
+        </div>
       </div>
     </div>
   </div>

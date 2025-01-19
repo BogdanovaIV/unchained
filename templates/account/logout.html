@@ -1,32 +1,38 @@
 {% extends "base.html" %}
 {% load static %}
-
 {% load i18n %}
 
 {% block head_title %}{% trans "Sign Out" %}{% endblock %}
 
 {% block content %}
-<section class="masthead py-4 text-center bg-image-sign-in">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 mt-3 offset-md-2">
-                <h1>{% trans "Sign Out" %}</h1>
 
-                <p class="fs-4">{% trans 'Are you sure you want to sign out?' %}</p>
+<section class="masthead py-5 d-flex justify-content-center align-items-center bg-body-tertiary">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8 col-sm-10 text-center">
+                <h1 class="display-5 fw-bold text-dark">{% trans "Sign Out" %}</h1>
+                <p class="fs-5 fw-normal mt-3 text-muted">
+                    {% trans "Are you sure you want to sign out?" %}
+                </p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-md-8 mt-3 offset-md-2">
 
-                <form method="post" action="{% url 'account_logout' %}">
-                    {% csrf_token %}
-                    {% if redirect_field_value %}
-                    <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-                    {% endif %}
-                    <button class="btn btn-secondary" type="submit" aria-label="Confirm Sign Out">
-                        {% trans 'Sign Out' %}
-                    </button>
-                </form>
+        <div class="row justify-content-center mt-4">
+            <div class="col-lg-4 col-md-6 col-sm-8">
+                <div class="card shadow-sm border-0 rounded-4">
+                    <div class="card-body p-4 text-center">
+                        <form method="post" action="{% url 'account_logout' %}">
+                            {% csrf_token %}
+                            {% if redirect_field_value %}
+                            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                            {% endif %}
+                            <button class="btn btn-danger w-100 py-2 fw-bold" type="submit"
+                                aria-label="Confirm Sign Out">
+                                {% trans "Sign Out" %}
+                            </button>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
