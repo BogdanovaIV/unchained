@@ -1,0 +1,10 @@
+
+.card:hover {
+    transform: scale(1.05); /* Slightly grow the card */
+    transition: transform 0.3s ease-in-out; /* Smooth transition */
+}
+
+.card:focus {
+    transform: scale(1.05); /* Same effect when focused */
+    outline: none; /* Remove default outline */
+}
